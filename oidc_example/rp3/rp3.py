@@ -258,7 +258,10 @@ def application(environ, start_response):
                                                        clients.path[path]))
             return operror(environ, start_response, "%s" % 'Not allowed')
 
-        client = clients[session["op"]]
+        LOGGER.debug('[{}]clients.keys(): {}'.
+                     format(session.id, clients.keys()))
+
+        client = clients[path]
 
         _response_type = client.behaviour["response_type"]
         try:
