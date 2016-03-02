@@ -321,7 +321,7 @@ class OIDCClients(object):
                 kwargs["provider_info"]["issuer"])
             client.store_registration_info(RegistrationResponse(
                 **kwargs["client_registration"]))
-            self.get_path(kwargs['client_info']['redirect_uris'],
+            self.get_path(kwargs['client_registration']['redirect_uris'],
                           kwargs["provider_info"]["issuer"])
         elif _key_set == set(["srv_discovery_url", "client_registration"]):
             _ = client.provider_config(kwargs["srv_discovery_url"])
